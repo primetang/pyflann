@@ -1,5 +1,4 @@
 setup.py
-./pyflann/lib/darwin/libflann.dylib
 pyflann/__init__.py
 pyflann/exceptions.py
 pyflann/index.py
@@ -15,5 +14,9 @@ pyflann/io/dat_dataset.py
 pyflann/io/dataset.py
 pyflann/io/hdf5_dataset.py
 pyflann/io/npy_dataset.py
+pyflann/lib/darwin/libflann.dylib
+pyflann/lib/linux/libflann.so
+pyflann/lib/win32/x64/flann.dll
+pyflann/lib/win32/x86/flann.dll
 pyflann/util/__init__.py
 pyflann/util/weave_tools.py
