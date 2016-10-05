@@ -133,7 +133,7 @@ def load_flann_library():
 
     root_dir = os.path.abspath(os.path.dirname(__file__))
 
-    libnames = ['linux/libflann.so']
+    libnames = ['linux/libflann.so', 'libflann.so']
     libdir = 'lib'
     if sys.platform == 'win32':
         if sys.maxsize > 2 ** 32:

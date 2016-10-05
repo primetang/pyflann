@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='pyflann',
-    version='1.6.12',
+    version='1.6.13',
     description='pyflann is the python bindings for FLANN - Fast Library for Approximate Nearest Neighbors.',
     author='Marius Muja & Gefu Tang',
     author_email='mariusm@cs.ubc.ca, tanggefu@gmail.com',
