@@ -5,8 +5,6 @@ pyflann
 
 pyflann is the python bindings for [FLANN - Fast Library for Approximate Nearest Neighbors](http://www.cs.ubc.ca/research/flann/).
 
-#####Please feel free to contact me [tanggefu@gmail.com] if you have any questions.
-
 ###2. Install
 
 This package uses distutils, which is the default way of installing python modules. To install in your home directory, securely run the following:
