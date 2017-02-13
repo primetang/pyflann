@@ -7,6 +7,8 @@ pyflann is the python bindings for [FLANN - Fast Library for Approximate Nearest
 
 ###2. Install
 
+## For python2
+
 This package uses distutils, which is the default way of installing python modules. To install in your home directory, securely run the following:
 ```
 git clone https://github.com/primetang/pyflann.git
@@ -18,6 +20,10 @@ Or directly through `pip` to install it:
 ```
 [sudo] pip install pyflann
 ```
+
+## For python3
+
+Please refer to [this issuse](https://github.com/primetang/pyflann/issues/1) to modify the code.
 
 ###3. Usage
 
