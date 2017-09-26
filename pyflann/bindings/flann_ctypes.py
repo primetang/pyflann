@@ -50,7 +50,11 @@ class CustomStructure(Structure):
         self.update(self._defaults_)
 
     def update(self, dict):
-        for k, v in dict.iteritems():
+        try:
+            iteritems = dict.iteritems()
+        except AttributeError:
+            iteritems = dict.items()
+        for k, v in iteritems:
             if k in self.__field_names:
                 setattr(self, k, self.__translate(k, v))
 
@@ -75,7 +79,11 @@ class CustomStructure(Structure):
 
     def __translate_back(self, k, v):
         if k in self._translation_:
-            for tk, tv in self._translation_[k].iteritems():
+            try:
+                iteritems = self._translation_[k].iteritems()
+            except AttributeError:
+                iteritems = self._translation_[k].items()
+            for tk, tv in iteritems:
                 if tv == v:
                     return tk
         return v
@@ -148,7 +156,7 @@ def load_flann_library():
             try:
                 flannlib = cdll[os.path.join(root_dir, libdir, libname)]
                 return flannlib
-            except Exception, e:
+            except Exception as e:
                 pass
         tmp = os.path.dirname(root_dir)
         if tmp == root_dir:
@@ -198,7 +206,7 @@ type_mappings = (('float', 'float32'),
 
 def define_functions(str):
     for type in type_mappings:
-        exec str % {'C': type[0], 'numpy': type[1]}
+        exec(str % {'C': type[0], 'numpy': type[1]})
 
 flann.build_index = {}
 define_functions(r"""
