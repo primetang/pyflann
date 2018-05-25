@@ -148,7 +148,7 @@ def load_flann_library():
             try:
                 flannlib = cdll[os.path.join(root_dir, libdir, libname)]
                 return flannlib
-            except Exception, e:
+            except Exception as e:
                 pass
         tmp = os.path.dirname(root_dir)
         if tmp == root_dir:
@@ -198,7 +198,7 @@ type_mappings = (('float', 'float32'),
 
 def define_functions(str):
     for type in type_mappings:
-        exec str % {'C': type[0], 'numpy': type[1]}
+        exec(str % {'C': type[0], 'numpy': type[1]})
 
 flann.build_index = {}
 define_functions(r"""
