@@ -27,10 +27,10 @@
 from __future__ import with_statement
 
 from pyflann.exceptions import FLANNException
-import binary_dataset
-import dat_dataset
-import npy_dataset
-import hdf5_dataset
+import .binary_dataset
+import .dat_dataset
+import .npy_dataset
+import .hdf5_dataset
 
 import os.path
 from numpy import float32
@@ -58,5 +58,5 @@ def save(dataset, filename, format = None, **kwargs):
             format = extension[1:]
         handler = dataset_formats[format]
         handler.save(dataset, filename, **kwargs)
-    except Exception,e:
+    except Exception as e:
         raise FLANNException(e)
