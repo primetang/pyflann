@@ -24,13 +24,13 @@
 #(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 #THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import with_statement
+
 
 from pyflann.exceptions import FLANNException
-import binary_dataset
-import dat_dataset
-import npy_dataset
-import hdf5_dataset
+from . import binary_dataset
+from . import dat_dataset
+from . import npy_dataset
+from . import hdf5_dataset
 
 import os.path
 from numpy import float32
@@ -45,7 +45,7 @@ dataset_formats = {
 
 def load(filename, rows = -1, cols = -1, dtype = float32, **kwargs):
     
-    for format in dataset_formats.values():
+    for format in list(dataset_formats.values()):
         if format.check(filename):
             return format.load(filename, rows, cols, dtype, **kwargs)
     raise FLANNException("Error: Unknown dataset format")
@@ -58,5 +58,5 @@ def save(dataset, filename, format = None, **kwargs):
             format = extension[1:]
         handler = dataset_formats[format]
         handler.save(dataset, filename, **kwargs)
-    except Exception,e:
+    except Exception as e:
         raise FLANNException(e)

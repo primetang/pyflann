@@ -24,14 +24,14 @@
 #(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 #THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from __future__ import with_statement
+
 
 from pyflann.exceptions import FLANNException
 import numpy
 have_h5py = True
 try:
     import h5py
-except Exception,e:
+except Exception as e:
     have_h5py = False
 
 if not have_h5py:
@@ -64,7 +64,7 @@ else:
             h5file = h5py.File(filename)
             h5file.create_dataset(dataset_name, data=dataset)
             h5file.close()
-        except Exception,e:
+        except Exception as e:
             h5file.close()
             raise FLANNException(e)
 
@@ -77,12 +77,12 @@ else:
             else:
                 dataset_name = 'dataset'
             
-            for node in h5file.keys():
+            for node in list(h5file.keys()):
                 if node == dataset_name:
                     data = numpy.array(h5file[node])
             h5file.close()
             return data
-        except Exception,e:
+        except Exception as e:
             h5file.close()
             raise FLANNException(e)
             
