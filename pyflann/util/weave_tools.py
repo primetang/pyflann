@@ -165,7 +165,7 @@ class CStruct:
         format = join([ s for (s,_,_) in members],'')
         self.__struct_dict = dict( (v for (_,v,_) in members) )
         self.__translation_dict = dict( ( (k[0],v) for (_,k,v) in members if v != None))
-        print self.__translation_dict
+        print(self.__translation_dict)
         self.__struct = struct.Struct(format)
         
         
