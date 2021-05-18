@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: pyflann
+Version: 1.6.13
+Summary: pyflann is the python bindings for FLANN - Fast Library for Approximate Nearest Neighbors.
+Home-page: https://github.com/primetang/pyflann
+Author: Marius Muja & Gefu Tang
+Author-email: mariusm@cs.ubc.ca, tanggefu@gmail.com
+License: BSD
+Description: UNKNOWN
+Keywords: flann
+Platform: UNKNOWN

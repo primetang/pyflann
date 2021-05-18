@@ -13,13 +13,13 @@ testset = np.array(
 flann = FLANN()
 result, dists = flann.nn(
     dataset, testset, 2, algorithm="kmeans", branching=32, iterations=7, checks=16)
-print result
-print dists
+print(result)
+print(dists)
 
 dataset = np.random.rand(10000, 128)
 testset = np.random.rand(1000, 128)
 flann = FLANN()
 result, dists = flann.nn(
     dataset, testset, 5, algorithm="kmeans", branching=32, iterations=7, checks=16)
-print result
-print dists
+print(result)
+print(dists)
